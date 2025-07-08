@@ -2,6 +2,14 @@
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     *, :before, :after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-scroll-snap-strictness: proximity;
       --tw-border-style: solid;
       --tw-font-weight: initial;
@@ -33,12 +41,16 @@
     --color-gray-700: oklch(37.3% .034 259.733);
     --color-zinc-600: oklch(44.2% .017 285.786);
     --color-black: #000;
+    --color-white: #fff;
     --spacing: .25rem;
     --container-lg: 32rem;
+    --container-5xl: 64rem;
     --text-xs: .75rem;
     --text-xs--line-height: calc(1 / .75);
     --text-sm: .875rem;
     --text-sm--line-height: calc(1.25 / .875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
@@ -371,6 +383,297 @@
     }
   }
 
+  .menu {
+    --menu-active-fg: var(--color-neutral-content);
+    --menu-active-bg: var(--color-neutral);
+    flex-flow: column wrap;
+    width: fit-content;
+    padding: .5rem;
+    font-size: .875rem;
+    display: flex;
+  }
+
+  .menu :where(li ul) {
+    white-space: nowrap;
+    margin-inline-start: 1rem;
+    padding-inline-start: .5rem;
+    position: relative;
+  }
+
+  .menu :where(li ul):before {
+    inset-inline-start: 0;
+    background-color: var(--color-base-content);
+    opacity: .1;
+    width: var(--border);
+    content: "";
+    position: absolute;
+    top: .75rem;
+    bottom: .75rem;
+  }
+
+  .menu :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
+    display: none;
+  }
+
+  .menu :where(li:not(.menu-title) > :not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    border-radius: var(--radius-field);
+    text-align: start;
+    text-wrap: balance;
+    user-select: none;
+    grid-auto-columns: minmax(auto, max-content) auto max-content;
+    grid-auto-flow: column;
+    align-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+    padding-block: .375rem;
+    padding-inline: .75rem;
+    transition-property: color, background-color, box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1);
+    display: grid;
+  }
+
+  .menu :where(li > details > summary) {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .menu :where(li > details > summary) {
+      outline-offset: 2px;
+      outline: 2px solid #0000;
+    }
+  }
+
+  .menu :where(li > details > summary)::-webkit-details-marker {
+    display: none;
+  }
+
+  :is(.menu :where(li > details > summary), .menu :where(li > .menu-dropdown-toggle)):after {
+    content: "";
+    transform-origin: 50%;
+    pointer-events: none;
+    justify-self: flex-end;
+    width: .375rem;
+    height: .375rem;
+    transition-property: rotate, translate;
+    transition-duration: .2s;
+    display: block;
+    translate: 0 -1px;
+    rotate: -135deg;
+    box-shadow: inset 2px 2px;
+  }
+
+  .menu :where(li > details[open] > summary):after, .menu :where(li > .menu-dropdown-toggle.menu-dropdown-show):after {
+    translate: 0 1px;
+    rotate: 45deg;
+  }
+
+  .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn).menu-focus, .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn):focus-visible {
+    cursor: pointer;
+    background-color: var(--color-base-content);
+    color: var(--color-base-content);
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    :is(.menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn).menu-focus, .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn):focus-visible) {
+      background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+    }
+  }
+
+  @media (forced-colors: active) {
+    :is(.menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn).menu-focus, .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn):focus-visible) {
+      outline-offset: 2px;
+      outline: 2px solid #0000;
+    }
+  }
+
+  .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover) {
+    cursor: pointer;
+    background-color: var(--color-base-content);
+    --tw-outline-style: none;
+    outline-style: none;
+    box-shadow: inset 0 1px oklch(0% 0 0 / .01), inset 0 -1px oklch(100% 0 0 / .01);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover) {
+      background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .menu :where(li:not(.menu-title, .disabled) > :not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover) {
+      outline-offset: 2px;
+      outline: 2px solid #0000;
+    }
+  }
+
+  .menu :where(li:empty) {
+    background-color: var(--color-base-content);
+    opacity: .1;
+    height: 1px;
+    margin: .5rem 1rem;
+  }
+
+  .menu :where(li) {
+    flex-flow: column wrap;
+    flex-shrink: 0;
+    align-items: stretch;
+    display: flex;
+    position: relative;
+  }
+
+  .menu :where(li) .badge {
+    justify-self: flex-end;
+  }
+
+  .menu :where(li) > :not(ul, .menu-title, details, .btn):active, .menu :where(li) > :not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active {
+    --tw-outline-style: none;
+    color: var(--menu-active-fg);
+    background-color: var(--menu-active-bg);
+    background-size: auto, calc(var(--noise) * 100%);
+    background-image: none, var(--fx-noise);
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    :is(.menu :where(li) > :not(ul, .menu-title, details, .btn):active, .menu :where(li) > :not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active) {
+      outline-offset: 2px;
+      outline: 2px solid #0000;
+    }
+  }
+
+  :is(.menu :where(li) > :not(ul, .menu-title, details, .btn):active, .menu :where(li) > :not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active):not(:is(.menu :where(li) > :not(ul, .menu-title, details, .btn):active, .menu :where(li) > :not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active):active) {
+    box-shadow: 0 2px calc(var(--depth) * 3px) -2px var(--menu-active-bg);
+  }
+
+  .menu :where(li).menu-disabled {
+    pointer-events: none;
+    color: var(--color-base-content);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .menu :where(li).menu-disabled {
+      color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    }
+  }
+
+  .menu .dropdown:focus-within .menu-dropdown-toggle:after {
+    translate: 0 1px;
+    rotate: 45deg;
+  }
+
+  .menu .dropdown-content {
+    margin-top: .5rem;
+    padding: .5rem;
+  }
+
+  .menu .dropdown-content:before {
+    display: none;
+  }
+
+  .dropdown {
+    position-area: var(--anchor-v, bottom) var(--anchor-h, span-right);
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdown > :not(summary):focus {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .dropdown > :not(summary):focus {
+      outline-offset: 2px;
+      outline: 2px solid #0000;
+    }
+  }
+
+  .dropdown .dropdown-content {
+    position: absolute;
+  }
+
+  .dropdown:not(details, .dropdown-open, .dropdown-hover:hover, :focus-within) .dropdown-content {
+    transform-origin: top;
+    opacity: 0;
+    display: none;
+    scale: 95%;
+  }
+
+  .dropdown[popover], .dropdown .dropdown-content {
+    z-index: 999;
+    transition-behavior: allow-discrete;
+    transition-property: opacity, scale, display;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    animation: .2s dropdown;
+  }
+
+  @starting-style {
+    .dropdown[popover], .dropdown .dropdown-content {
+      opacity: 0;
+      scale: 95%;
+    }
+  }
+
+  :is(.dropdown.dropdown-open, .dropdown:not(.dropdown-hover):focus, .dropdown:focus-within) > [tabindex]:first-child {
+    pointer-events: none;
+  }
+
+  :is(.dropdown.dropdown-open, .dropdown:not(.dropdown-hover):focus, .dropdown:focus-within) .dropdown-content {
+    opacity: 1;
+  }
+
+  .dropdown.dropdown-hover:hover .dropdown-content {
+    opacity: 1;
+    scale: 100%;
+  }
+
+  .dropdown:is(details) summary::-webkit-details-marker {
+    display: none;
+  }
+
+  :is(.dropdown.dropdown-open, .dropdown:focus, .dropdown:focus-within) .dropdown-content {
+    scale: 100%;
+  }
+
+  .dropdown:where([popover]) {
+    background: none;
+  }
+
+  .dropdown[popover] {
+    color: inherit;
+    position: fixed;
+  }
+
+  @supports not (position-area: bottom) {
+    .dropdown[popover] {
+      margin: auto;
+    }
+
+    .dropdown[popover].dropdown-open:not(:popover-open) {
+      transform-origin: top;
+      opacity: 0;
+      display: none;
+      scale: 95%;
+    }
+
+    .dropdown[popover]::backdrop {
+      background-color: oklab(0% none none / .3);
+    }
+  }
+
+  .dropdown[popover]:not(.dropdown-open, :popover-open) {
+    transform-origin: top;
+    opacity: 0;
+    display: none;
+    scale: 95%;
+  }
+
   .btn {
     cursor: pointer;
     text-align: center;
@@ -517,6 +820,23 @@
     isolation: isolate;
   }
 
+  .loading {
+    pointer-events: none;
+    aspect-ratio: 1;
+    vertical-align: middle;
+    width: calc(var(--size-selector, .25rem) * 6);
+    background-color: currentColor;
+    display: inline-block;
+    mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' stroke='black' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform-origin='center'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3' stroke-linecap='round'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 12 12' to='360 12 12' dur='2s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dasharray' values='0,150;42,150;42,150' keyTimes='0;0.475;1' dur='1.5s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dashoffset' values='0;-16;-59' keyTimes='0;0.475;1' dur='1.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
+    mask-position: center;
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+  }
+
+  .pointer-events-none {
+    pointer-events: none;
+  }
+
   .collapse {
     border-radius: var(--radius-box, 1rem);
     isolation: isolate;
@@ -636,6 +956,10 @@
 
   .collapse {
     visibility: collapse;
+  }
+
+  .invisible {
+    visibility: hidden;
   }
 
   .collapse-title {
@@ -805,12 +1129,61 @@
     opacity: .2;
   }
 
+  .absolute {
+    position: absolute;
+  }
+
   .fixed {
     position: fixed;
   }
 
   .relative {
     position: relative;
+  }
+
+  .dropdown-end {
+    --anchor-h: span-left;
+  }
+
+  .dropdown-end :where(.dropdown-content) {
+    inset-inline-end: 0;
+    translate: 0;
+  }
+
+  .dropdown-end.dropdown-left {
+    --anchor-h: left;
+    --anchor-v: span-top;
+  }
+
+  .dropdown-end.dropdown-left .dropdown-content {
+    top: auto;
+    bottom: 0;
+  }
+
+  .dropdown-end.dropdown-right {
+    --anchor-h: right;
+    --anchor-v: span-top;
+  }
+
+  .dropdown-end.dropdown-right .dropdown-content {
+    top: auto;
+    bottom: 0;
+  }
+
+  .top-1\/2 {
+    top: 50%;
+  }
+
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+
+  .right-5 {
+    right: calc(var(--spacing) * 5);
+  }
+
+  .left-5 {
+    left: calc(var(--spacing) * 5);
   }
 
   .hero-content {
@@ -836,16 +1209,16 @@
     cursor: pointer;
   }
 
+  .z-1 {
+    z-index: 1;
+  }
+
   .z-50 {
     z-index: 50;
   }
 
   .col-span-1 {
     grid-column: span 1 / span 1;
-  }
-
-  .col-span-3 {
-    grid-column: span 3 / span 3;
   }
 
   .hero {
@@ -895,12 +1268,76 @@
     box-shadow: 0 25px 50px -12px oklch(0% 0 0 / .25);
   }
 
+  .m-1 {
+    margin: calc(var(--spacing) * 1);
+  }
+
+  .label {
+    white-space: nowrap;
+    color: currentColor;
+    align-items: center;
+    gap: .375rem;
+    display: inline-flex;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .label {
+      color: color-mix(in oklab, currentColor 60%, transparent);
+    }
+  }
+
+  .label:has(input) {
+    cursor: pointer;
+  }
+
+  .label:is(.input > *, .select > *) {
+    white-space: nowrap;
+    height: calc(100% - .5rem);
+    font-size: inherit;
+    align-items: center;
+    padding-inline: .75rem;
+    display: flex;
+  }
+
+  .label:is(.input > *, .select > *):first-child {
+    border-inline-end: var(--border) solid currentColor;
+    margin-inline: -.75rem .75rem;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .label:is(.input > *, .select > *):first-child {
+      border-inline-end: var(--border) solid color-mix(in oklab, currentColor 10%, #0000);
+    }
+  }
+
+  .label:is(.input > *, .select > *):last-child {
+    border-inline-start: var(--border) solid currentColor;
+    margin-inline: .75rem -.75rem;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .label:is(.input > *, .select > *):last-child {
+      border-inline-start: var(--border) solid color-mix(in oklab, currentColor 10%, #0000);
+    }
+  }
+
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
 
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
+  }
+
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+
+  .carousel-item {
+    box-sizing: content-box;
+    scroll-snap-align: start;
+    flex: none;
+    display: flex;
   }
 
   .badge {
@@ -978,6 +1415,26 @@
     display: inline-flex;
   }
 
+  .carousel {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    display: inline-flex;
+    overflow-x: scroll;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .contents {
+    display: contents;
+  }
+
   .flex {
     display: flex;
   }
@@ -990,16 +1447,43 @@
     display: none;
   }
 
+  .inline {
+    display: inline;
+  }
+
+  .btn-circle {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 3.40282e38px;
+    padding-inline: 0;
+  }
+
   .h-15 {
     height: calc(var(--spacing) * 15);
+  }
+
+  .h-\[10vh\] {
+    height: 10vh;
   }
 
   .h-\[15vh\] {
     height: 15vh;
   }
 
+  .h-\[20vh\] {
+    height: 20vh;
+  }
+
+  .h-\[60vh\] {
+    height: 60vh;
+  }
+
   .h-\[73px\] {
     height: 73px;
+  }
+
+  .h-\[400px\] {
+    height: 400px;
   }
 
   .h-dvh {
@@ -1012,6 +1496,18 @@
 
   .max-h-\[calc\(100dvh-4rem\)\] {
     max-height: calc(100dvh - 4rem);
+  }
+
+  .min-h-\[400px\] {
+    min-height: 400px;
+  }
+
+  .min-h-\[500px\] {
+    min-height: 500px;
+  }
+
+  .min-h-\[600px\] {
+    min-height: 600px;
   }
 
   .min-h-screen {
@@ -1031,20 +1527,24 @@
     width: calc(var(--spacing) * 15);
   }
 
-  .w-32 {
-    width: calc(var(--spacing) * 32);
-  }
-
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
 
-  .w-64 {
-    width: calc(var(--spacing) * 64);
+  .w-52 {
+    width: calc(var(--spacing) * 52);
   }
 
   .w-full {
     width: 100%;
+  }
+
+  .w-max {
+    width: max-content;
+  }
+
+  .max-w-5xl {
+    max-width: var(--container-5xl);
   }
 
   .max-w-lg {
@@ -1053,6 +1553,19 @@
 
   .flex-1 {
     flex: 1;
+  }
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+
+  .transform {
+    transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
   }
 
   .link {
@@ -1077,8 +1590,20 @@
     outline: 2px solid;
   }
 
+  .snap-x {
+    scroll-snap-type: x var(--tw-scroll-snap-strictness);
+  }
+
   .snap-y {
     scroll-snap-type: y var(--tw-scroll-snap-strictness);
+  }
+
+  .snap-mandatory {
+    --tw-scroll-snap-strictness: mandatory;
+  }
+
+  .snap-center {
+    scroll-snap-align: center;
   }
 
   .grid-cols-1 {
@@ -1091,6 +1616,10 @@
 
   .items-center {
     align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
   }
 
   .justify-center {
@@ -1109,8 +1638,29 @@
     gap: calc(var(--spacing) * 5);
   }
 
+  .place-self-end {
+    place-self: end;
+  }
+
+  .self-center {
+    align-self: center;
+  }
+
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
   .rounded-2xl {
     border-radius: var(--radius-2xl);
+  }
+
+  .rounded-box {
+    border-radius: var(--radius-box);
+    border-radius: var(--radius-box);
   }
 
   .rounded-full {
@@ -1151,6 +1701,10 @@
 
   .border-base-300 {
     border-color: var(--color-base-300);
+  }
+
+  .border-black {
+    border-color: var(--color-black);
   }
 
   .border-t-zinc-600 {
@@ -1202,11 +1756,6 @@
     padding: .1875rem;
   }
 
-  .checkbox-xs {
-    --size: calc(var(--size-selector, .25rem) * 4);
-    padding: .125rem;
-  }
-
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
@@ -1233,10 +1782,6 @@
 
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
-  }
-
-  .pr-5 {
-    padding-right: calc(var(--spacing) * 5);
   }
 
   .pb-5 {
@@ -1323,6 +1868,10 @@
     color: var(--color-neutral-content);
   }
 
+  .text-white {
+    color: var(--color-white);
+  }
+
   .link-hover {
     text-decoration-line: none;
   }
@@ -1336,6 +1885,10 @@
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .opacity-50 {
+    opacity: .5;
   }
 
   .shadow-2xl {
@@ -1394,12 +1947,6 @@
     }
   }
 
-  .btn-md {
-    --fontsize: .875rem;
-    --btn-p: 1rem;
-    --size: calc(var(--size-field, .25rem) * 10);
-  }
-
   .btn-sm {
     --fontsize: .75rem;
     --btn-p: .75rem;
@@ -1427,6 +1974,12 @@
   }
 
   @media (width >= 48rem) {
+    .md\:visible {
+      visibility: visible;
+    }
+  }
+
+  @media (width >= 48rem) {
     .md\:col-span-3 {
       grid-column: span 3 / span 3;
     }
@@ -1439,8 +1992,26 @@
   }
 
   @media (width >= 48rem) {
+    .md\:flex {
+      display: flex;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:hidden {
+      display: none;
+    }
+  }
+
+  @media (width >= 48rem) {
     .md\:h-20 {
       height: calc(var(--spacing) * 20);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:h-\[600px\] {
+      height: 600px;
     }
   }
 
@@ -1498,6 +2069,13 @@
     .md\:text-7xl {
       font-size: var(--text-7xl);
       line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:text-base {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
     }
   }
 
@@ -1568,6 +2146,49 @@ html {
     filter: brightness(1.05) contrast(1.05);
     scale: 1.1;
   }
+}
+
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false
 }
 
 @property --tw-scroll-snap-strictness {

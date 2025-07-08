@@ -24,6 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <title>Sortra – File Organization Made Simple</title>
+        <meta name="title" content="Sortra – File Organization Made Simple" />
+        <meta name="description" content="Organize files effortlessly with Sortra – a fast, cross-platform file organization tool. Built with privacy and simplicity in mind." />
+
+        <link rel="icon" type="image/x-icon" href="/logo.ico" />
+        <meta name="keywords" content="Sortra, file organizer, file sorter, Tauri app, organize files, cross-platform app, open source file tool" />
+        <meta name="author" content="Piotr Wittig" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

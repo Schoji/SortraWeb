@@ -4,28 +4,31 @@ import React, { useState } from 'react';
 import { ReactElement } from 'react';
 
 type DownloadModalProps = {
+    id: number,
     icon: ReactElement,
     color: string,
     osName: string,
+    file: string;
 };
 
-const DownloadModal = ({ icon: Icon, color, osName }: DownloadModalProps) => {
+const DownloadModal = ({ id, icon, color, osName, file }: DownloadModalProps) => {
     const [checkboxClicked, setCheckboxClicked] = useState<boolean>(false);
     return (
         <>
             <button
-                className={`btn ${color} btn-wide rounded-2xl w-48 shadow-2xl`}
+                className={`btn ${color} btn-wide rounded-xl w-48 shadow-2xl`}
                 onClick={() => {
-                    const modal = document.getElementById('my_modal_2') as HTMLDialogElement | null;
+                    const modalID = "modal" + id;
+                    const modal = document.getElementById(modalID) as HTMLDialogElement | null;
                     if (modal) {
                         modal.showModal();
                     }
                 }}
             >
-                {Icon} {osName}
+                {icon} {osName}
 
             </button>
-            <dialog id="my_modal_2" className="modal">
+            <dialog id={`modal${id}`} className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">End User License Agreement</h3>
                     <p className="text-sm text-gray-400">Please read and accept the terms before downloading Sortra.</p>
@@ -43,10 +46,18 @@ const DownloadModal = ({ icon: Icon, color, osName }: DownloadModalProps) => {
                         <form method="dialog">
                             <button className='btn btn-sm btn-outline'>Cancel</button>
                         </form>
-                        <button
-                            defaultChecked={false}
-                            disabled={checkboxClicked}
-                            className='btn btn-sm btn-primary'>Accept & Download</button>
+                        <a
+                            href={checkboxClicked ? file : undefined}
+                            onClick={e => {
+                                if (!checkboxClicked) {
+                                    e.preventDefault();
+                                }
+                            }}
+                            download
+                            className={`btn btn-sm btn-primary${!checkboxClicked ? ' btn-disabled pointer-events-none opacity-50' : ''}`}
+                        >
+                            Accept & Download
+                        </a>
                     </div>
                 </div>
                 <form method="dialog" className="modal-backdrop">

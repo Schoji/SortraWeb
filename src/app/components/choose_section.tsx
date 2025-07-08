@@ -14,8 +14,8 @@ const ChooseSection = ({ icon: Icon, header, footer, color }: ChooseSectionProps
             <div className={`rounded-xl p-4 flex items-center justify-center ${color}`}>
                 <Icon />
             </div>
-            <h1 className='text-3xl font-semibold text-center'>{header}</h1>
-            <p className='text-center text-gray-400 w-2/3'>{footer}</p>
+            <h1 className='text-lg md:text-3xl font-semibold text-center'>{header}</h1>
+            <p className='text-sm md:text-base text-center text-gray-400 w-2/3'>{footer}</p>
         </div>
     );
 };

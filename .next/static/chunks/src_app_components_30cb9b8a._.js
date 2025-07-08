@@ -193,13 +193,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
-const DownloadModal = ({ icon: Icon, color, osName })=>{
+const DownloadModal = ({ icon: Icon, color, osName, file })=>{
     _s();
     const [checkboxClicked, setCheckboxClicked] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                className: `btn ${color} btn-wide rounded-2xl w-48 shadow-2xl`,
+                className: `btn ${color} btn-wide rounded-xl w-48 shadow-2xl`,
                 onClick: ()=>{
                     const modal = document.getElementById('my_modal_2');
                     if (modal) {
@@ -213,7 +213,7 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/download_modal.tsx",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("dialog", {
@@ -228,7 +228,7 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                 children: "End User License Agreement"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/download_modal.tsx",
-                                lineNumber: 30,
+                                lineNumber: 31,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -236,7 +236,7 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                 children: "Please read and accept the terms before downloading Sortra."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/download_modal.tsx",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -249,27 +249,10 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                                 children: "1. License Grant:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/download_modal.tsx",
-                                                lineNumber: 33,
-                                                columnNumber: 48
-                                            }, this),
-                                            " You are granted a non-exclusive, non-transferable license to use Sortra for personal and commercial purposes."
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/app/components/download_modal.tsx",
-                                        lineNumber: 33,
-                                        columnNumber: 25
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "2. Restrictions:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/components/download_modal.tsx",
                                                 lineNumber: 34,
                                                 columnNumber: 48
                                             }, this),
-                                            " You may not redistribute, sell, or modify Sortra without explicit permission from the author."
+                                            " You are granted a non-exclusive, non-transferable license to use Sortra for personal and commercial purposes."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
@@ -280,13 +263,13 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                         className: "text-sm",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "3. Disclaimer:"
+                                                children: "2. Restrictions:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/download_modal.tsx",
                                                 lineNumber: 35,
                                                 columnNumber: 48
                                             }, this),
-                                            ' Sortra is provided "as is" without any warranties. The author is not liable for any damages resulting from the use of this software.'
+                                            " You may not redistribute, sell, or modify Sortra without explicit permission from the author."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
@@ -297,13 +280,13 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                         className: "text-sm",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "4. Data Privacy:"
+                                                children: "3. Disclaimer:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/download_modal.tsx",
                                                 lineNumber: 36,
                                                 columnNumber: 48
                                             }, this),
-                                            " Sortra operates entirely offline. No data is collected or transmitted to external servers."
+                                            ' Sortra is provided "as is" without any warranties. The author is not liable for any damages resulting from the use of this software.'
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
@@ -314,13 +297,13 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                         className: "text-sm",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "5. Termination:"
+                                                children: "4. Data Privacy:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/download_modal.tsx",
                                                 lineNumber: 37,
                                                 columnNumber: 48
                                             }, this),
-                                            " This license is effective until terminated. You may terminate it by uninstalling Sortra."
+                                            " Sortra operates entirely offline. No data is collected or transmitted to external servers."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
@@ -331,23 +314,40 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                         className: "text-sm",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "6. Governing Law:"
+                                                children: "5. Termination:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/download_modal.tsx",
                                                 lineNumber: 38,
+                                                columnNumber: 48
+                                            }, this),
+                                            " This license is effective until terminated. You may terminate it by uninstalling Sortra."
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/download_modal.tsx",
+                                        lineNumber: 38,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "6. Governing Law:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/components/download_modal.tsx",
+                                                lineNumber: 39,
                                                 columnNumber: 48
                                             }, this),
                                             " This agreement is governed by applicable local laws."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
-                                        lineNumber: 38,
+                                        lineNumber: 39,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/download_modal.tsx",
-                                lineNumber: 32,
+                                lineNumber: 33,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -359,7 +359,7 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                         onClick: ()=>setCheckboxClicked(!checkboxClicked)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
-                                        lineNumber: 41,
+                                        lineNumber: 42,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -367,7 +367,7 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                         children: "I have read and accept the End User License Agreement"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
-                                        lineNumber: 42,
+                                        lineNumber: 43,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -377,34 +377,39 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/download_modal.tsx",
-                                            lineNumber: 44,
+                                            lineNumber: 45,
                                             columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
-                                        lineNumber: 43,
+                                        lineNumber: 44,
                                         columnNumber: 25
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        defaultChecked: false,
-                                        disabled: checkboxClicked,
-                                        className: "btn btn-sm btn-primary",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                        href: checkboxClicked ? file : undefined,
+                                        onClick: (e)=>{
+                                            if (!checkboxClicked) {
+                                                e.preventDefault();
+                                            }
+                                        },
+                                        download: true,
+                                        className: `btn btn-sm btn-primary${!checkboxClicked ? ' btn-disabled pointer-events-none opacity-50' : ''}`,
                                         children: "Accept & Download"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/download_modal.tsx",
-                                        lineNumber: 46,
+                                        lineNumber: 47,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/download_modal.tsx",
-                                lineNumber: 40,
+                                lineNumber: 41,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/download_modal.tsx",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -414,18 +419,18 @@ const DownloadModal = ({ icon: Icon, color, osName })=>{
                             children: "close"
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/download_modal.tsx",
-                            lineNumber: 53,
+                            lineNumber: 62,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/download_modal.tsx",
-                        lineNumber: 52,
+                        lineNumber: 61,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/download_modal.tsx",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 13
             }, this)
         ]

@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sortra Web 🌐
 
-## Getting Started
+**Sortra Web** is the official landing page for [Sortra](https://github.com/Schoji/Sortra) – a fast, cross-platform file organization tool built with Tauri and React.  
+This website is built with **Next.js**, **Tailwind CSS**, **DaisyUI**, and **Framer Motion** to deliver a beautiful, snappy and responsive user experience.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 💻 **Cross-platform download support** for Windows, macOS and Linux
+- 🎨 **Modern UI** powered by Tailwind CSS + DaisyUI
+- 🎞️ **Smooth animations** with Framer Motion
+- 🧭 Full-screen **scroll-snap** layout with sections
+- 💖 Integrated **PayPal donation** button
+- 📥 **Download modals** with OS icons and hover effects
+- 📸 **Screenshot gallery** to showcase the app
+- ❓ Interactive **FAQ accordion** section
+- 📜 Clear **disclaimer & license** for end users
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📸 Screenshots
 
-## Learn More
+> Here's what Sortra Web looks like:
 
-To learn more about Next.js, take a look at the following resources:
+### 🖼️ Hero Section
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Hero section](images/1.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📂 Why choose Sortra
 
-## Deploy on Vercel
+![How it works](images/2.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📸 Screenshot Gallery
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![App screenshots](images/5.png)
+
+### 💻 Download Section
+
+![Download modal](images/3.png)
+
+### ❓ FAQ Section
+
+![FAQ accordion](images/4.png)
+
+---
+
+## ⚖️ License
+
+This project is released under a **custom license**:
+
+> You are free to modify the code for personal use.  
+> However, **redistribution or public publishing (in any form)** is **not permitted** without **explicit permission** from the author.
+
+---
+
+## 🧩 Built With
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+## ❤️ Support Development
+
+Sortra Web and the Sortra app are completely free.  
+If you find them useful, consider supporting development with a donation:
+
+👉 [Donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=NS5B4E326KRYE)
