@@ -128,9 +128,9 @@ export default function Home() {
         </MotionWrapper>
         <MotionWrapper {...animation2Props}>
           <div className="grid justify-center md:grid-cols-3 gap-5">
-            <DownloadModal icon={<BsWindows />} color={"bg-blue-500"} osName={"Windows"} file={"./Sortra.exe"} id={0} />
-            <DownloadModal icon={<BsApple />} color={"bg-black"} osName={"macOS"} file={"./Sortra_1.0.0_aarch64.dmg"} id={1} />
-            <DownloadModal icon={<FcLinux size={20} />} color={"bg-orange-500"} osName={"Linux"} file={"./Sortra_1.0.0_amd64.AppImage"} id={2} />
+            <DownloadModal icon={<BsWindows />} color={"bg-blue-500"} osName={"Windows"} file={"https://github.com/Schoji/juan-note/releases/download/Release/Sortra.exe"} id={0} />
+            <DownloadModal icon={<BsApple />} color={"bg-black"} osName={"macOS"} file={"https://github.com/Schoji/juan-note/releases/download/Release/Sortra_1.0.0_aarch64.dmg"} id={1} />
+            <DownloadModal icon={<FcLinux size={20} />} color={"bg-orange-500"} osName={"Linux"} file={"https://github.com/Schoji/juan-note/releases/download/Release/Sortra_1.0.0_amd64.AppImage"} id={2} />
           </div>
         </MotionWrapper>
         <MotionWrapper {...animation3Props}>

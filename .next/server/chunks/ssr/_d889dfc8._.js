@@ -864,7 +864,7 @@ function Home() {
                                     }, void 0),
                                     color: "bg-blue-500",
                                     osName: "Windows",
-                                    file: "./Sortra.exe",
+                                    file: "https://github.com/Schoji/juan-note/releases/download/Release/Sortra.exe",
                                     id: 0
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
@@ -879,7 +879,7 @@ function Home() {
                                     }, void 0),
                                     color: "bg-black",
                                     osName: "macOS",
-                                    file: "./Sortra_1.0.0_aarch64.dmg",
+                                    file: "https://github.com/Schoji/juan-note/releases/download/Release/Sortra_1.0.0_aarch64.dmg",
                                     id: 1
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
@@ -896,7 +896,7 @@ function Home() {
                                     }, void 0),
                                     color: "bg-orange-500",
                                     osName: "Linux",
-                                    file: "./Sortra_1.0.0_amd64.AppImage",
+                                    file: "https://github.com/Schoji/juan-note/releases/download/Release/Sortra_1.0.0_amd64.AppImage",
                                     id: 2
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",

@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 import { ReactElement } from 'react';
@@ -46,18 +47,16 @@ const DownloadModal = ({ id, icon, color, osName, file }: DownloadModalProps) =>
                         <form method="dialog">
                             <button className='btn btn-sm btn-outline'>Cancel</button>
                         </form>
-                        <a
-                            href={checkboxClicked ? file : undefined}
+                        <Link
                             onClick={e => {
                                 if (!checkboxClicked) {
                                     e.preventDefault();
                                 }
                             }}
                             download
-                            className={`btn btn-sm btn-primary${!checkboxClicked ? ' btn-disabled pointer-events-none opacity-50' : ''}`}
-                        >
+                            className={`btn btn-sm btn-primary${!checkboxClicked ? ' btn-disabled pointer-events-none opacity-50' : ''}`} href={file}                        >
                             Accept & Download
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <form method="dialog" className="modal-backdrop">
